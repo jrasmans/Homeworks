@@ -1,12 +1,12 @@
-package io.codelex.classesandobjects.practice;
+package io.codelex.classesandobjects.account;
 
-public class Account {
+class Account {
+    private String name;
     private double balance;
-    private String owner;
 
-    public Account(String owner, double balance) {
+    public Account(String name, double balance) {
+        this.name = name;
         this.balance = balance;
-        this.owner = owner;
     }
 
     public void deposit(double amount) {
@@ -21,8 +21,8 @@ public class Account {
         return balance;
     }
 
-    @Override
     public String toString() {
-        return owner + " balance: " + balance;
+        return name + ": " + balance;
     }
 }
+
