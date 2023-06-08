@@ -8,10 +8,25 @@ public class Exercise1 {
 
         while (true) {
             System.out.println("Enter the numerator");
-            int numerator = scanner.nextInt();
-            System.out.println("Enter the divisor");
-            int divisor = scanner.nextInt();
-            System.out.println(numerator + " / " + divisor + " = " + numerator / divisor);
+            String input = scanner.nextLine();
+            if (input.startsWith("q") || input.startsWith("Q")) {
+                break;
+            }
+            try {
+                int numerator = Integer.parseInt(input);
+                System.out.println("Enter the divisor");
+                int divisor = scanner.nextInt();
+                if (divisor == 0) {
+                    System.out.println("You can't divide " + numerator + " by 0");
+                } else {
+                    System.out.println(numerator + " / " + divisor + " = " + numerator / divisor);
+                }
+                scanner.nextLine();
+            } catch (NumberFormatException e) {
+                System.out.println("You entered bad data.");
+                System.out.println("Please try again.");
+                scanner.nextLine();
+            }
         }
     }
 }
