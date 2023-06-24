@@ -3,7 +3,7 @@ package io.codelex.oop.summary;
 import java.util.function.Supplier;
 
 public class LazyBox<T> {
-    private Supplier<T> initializer;
+    private final Supplier<T> initializer;
     private T value;
     private boolean initialized;
 
