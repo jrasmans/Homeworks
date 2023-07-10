@@ -4,10 +4,11 @@ public class NewspaperAd extends Advert {
     private int columnCm;
     private int rate;
 
-    public NewspaperAd(int fee, int columncm, int ratepercm) {
+    public NewspaperAd(int fee, int columnCm, int ratePerCm) {
         super(fee);
-        columnCm = columncm;
-        rate = ratepercm;
+        this.columnCm = columnCm;
+        rate = ratePerCm;
+
     }
 
     public int cost() {

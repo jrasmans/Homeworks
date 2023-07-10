@@ -1,31 +1,23 @@
 package io.codelex.polymorphism.practice.exercise4;
 
+import java.math.BigDecimal;
+
 public class Executive extends Employee {
-    private double bonus;
+    private BigDecimal bonus;
 
-    //-----------------------------------------------------------------
-    // Sets up an executive with the specified information.
-    //-----------------------------------------------------------------
-    public Executive(String eName, String eAddress, String ePhone,
-                     String socSecNumber, double rate) {
-        super(eName, eAddress, ePhone, socSecNumber, rate);
-        bonus = 0; // bonus has yet to be awarded
-    }
-
-    //-----------------------------------------------------------------
-    // Awards the specified bonus to this executive.
-    //-----------------------------------------------------------------
-    public void awardBonus(double execBonus) {
+    public void awardBonus(BigDecimal execBonus) {
         bonus = execBonus;
     }
 
-    //-----------------------------------------------------------------
-    // Computes and returns the pay for an executive, which is the
-    // regular employee payment plus a one-time bonus.
-    //-----------------------------------------------------------------
-    public double pay() {
-        double payment = super.pay() + bonus;
-        bonus = 0;
+    public BigDecimal pay() {
+        BigDecimal payment = super.pay().add(bonus);
+        bonus = BigDecimal.ZERO;
         return payment;
+    }
+
+    public Executive(String eName, String eAddress, String ePhone,
+                     String socSecNumber, BigDecimal rate) {
+        super(eName, eAddress, ePhone, socSecNumber, rate);
+        bonus = BigDecimal.valueOf(0);
     }
 } 
